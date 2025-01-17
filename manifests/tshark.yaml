@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-to-pod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pod-to-pod
+  template:
+    metadata:
+      labels:
+        app: pod-to-pod
+    spec:
+      containers:
+      - name: tshark-ping-curl
+        image: ghcr.io/colossus06/tshark-ping-curl:latest
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+            - NET_RAW
+          runAsUser: 0
+        args: ["tail", "-f", "/dev/null"]
