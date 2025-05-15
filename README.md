@@ -1,22 +1,27 @@
-# Kubernetes Networking Observations
+# Kubernetes Networking Observations with Kindnet
 
-This repository contains manifests used to explore Kubernetes networking, focusing on pod-to-pod communication in a Minikube cluster with the Kindnet CNI through this article published on Medium and my blog. It provides insights into how intra-node and inter-node traffic flows.
+This repository accompanies the **Medium article series** on Kubernetes pod-to-pod networking internals using [Kindnet CNI](https://github.com/kubernetes-sigs/kind/tree/main/images/kindnetd) in a Minikube cluster. Each article explores how Kubernetes routes traffic within and across nodes in a Kindnet setup—**without bridges, overlays, or tunnels**.
 
-## Repository Contents
+📚 Read the full blog series on Medium:
 
-- **`manifests/tshark.yaml`**: A manifest for deploying pods with tools like `tshark` to capture and analyze network traffic within a single node minikube cluster with runtime docker and cni kindnet.
-- **`manifests/tshark-multi-node.yaml`**: A manifest designed for multi-node minikube cluster to test inter-node pod communication within a two node minikube cluster with runtime docker and cni kindnet.
+1. [Inside a Pod’s Birth: Veth Pairs, IPAM, and Routing with Kindnet](https://medium.com/itnext/inside-a-pods-birth-veth-pairs-ipam-and-routing-with-kindnet-cni-<article-id>)
+2. [How Intra-Node Pod Traffic Actually Flows in Kindnet](https://medium.com/itnext/how-intra-node-pod-traffic-actually-flows-in-kindnet-<article-id>)
+3. [Inter-Node Pod Traffic with Kindnet: The No-Overlay Walkthrough](https://medium.com/itnext/inter-node-pod-traffic-with-kindnet-the-no-overlay-walkthrough-<article-id>)
+4. [How Kindnet NATs Outbound Pod Traffic Without Breaking Intra-Cluster Visibility](https://medium.com/itnext/how-kindnet-nats-outbound-pod-traffic-without-breaking-intra-cluster-visibility-<article-id>)
 
-## Features
+## Repository Structure
 
-- Detailed analysis of Kubernetes pod networking.
-- Examples of intra-node and inter-node communication using Kindnet CNI.
-- Tools and techniques for inspecting traffic flow with `tshark` and `iproute2`.
+This repo provides manifests used to validate L3 routing behavior in Kindnet with both single-node and multi-node Minikube setups.
 
-## Getting Started
+* `manifests/tshark.yaml`: Deploys debug pods for inspecting **intra-node** communication using `tshark` and `iproute2` inside a single-node Minikube cluster.
+* `manifests/tshark-multi-node.yaml`: Targets a **two-node Minikube** cluster to capture and trace **inter-node** traffic between pods scheduled on different nodes.
 
+## Get Started
 
 ```bash
+# Single-node setup
 kubectl apply -f manifests/tshark.yaml
+
+# Multi-node (two-node Minikube) setup
 kubectl apply -f manifests/tshark-multi-node.yaml
 ```
