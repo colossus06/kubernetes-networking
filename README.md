@@ -4,8 +4,17 @@ This repository accompanies the **Medium article series** on Kubernetes pod-to-p
 
 📚 Read the full blog series on Medium:
 
-1. [Inside a Pod’s Birth: Veth Pairs, IPAM, and Routing with Kindnet]()
-2. [How Intra-Node Pod Traffic Actually Flows in Kindnet]()
+1. [Inside a Pod’s Birth in Kubernetes: Veth Pairs, IPAM, and Routing with Kindnet CNI](https://itnext.io/inside-a-pods-birth-veth-pairs-ipam-and-routing-with-kindnet-cni-d6394f3495c5)
+2. [Inside Intra-Node Pod Traffic in Kubernetes: How Kindnet with PTP Moves Packets](https://itnext.io/inside-intra-node-pod-traffic-in-kubernetes-how-kindnet-with-ptp-moves-packets-ffbbc07612b7)
+3. [Inter-Node Pod Traffic with Kindnet: The No-Overlay Walkthrough]()
+4. [How Kindnet NATs Outbound Pod Traffic Without Breaking Intra-Cluster Visibility]()
+
+Or Free on my personal blog:
+
+📚 Read the full blog series on Medium:
+
+1. [Inside a Pod’s Birth in Kubernetes: Veth Pairs, IPAM, and Routing with Kindnet CNI](https://podlock.readthedocs.io/blogs/k8s/ipam/ipam.html)
+2. [Inside Intra-Node Pod Traffic in Kubernetes: How Kindnet with PTP Moves Packets](https://podlock.readthedocs.io/blogs/k8s/ptp/ptp.html)
 3. [Inter-Node Pod Traffic with Kindnet: The No-Overlay Walkthrough]()
 4. [How Kindnet NATs Outbound Pod Traffic Without Breaking Intra-Cluster Visibility]()
 
